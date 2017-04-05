@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="phonecatApp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Google Phone Gallery</title>
+    <!-- Stylesheet -->
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
+    
+
+  </head>
+  <body>
+    <ng-view>
+    </ng-view>
+    <!-- Route -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script type="text/javascript" src="lib/moment/moment.js"></script>
+    <!-- // <script type="text/javascript" src="lib/angular/angular.js"></script> -->
+    <script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+    <script src="app.config.routes.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+
+    
+    <!-- Services -->
+    
+    <script src="services/login.service.js"></script>
+    <script src="services/http.service.js"></script>
+    <script src="services/phoneList.service.js"></script>
+    <script src="services/phoneDetails.service.js"></script>
+
+    
+
+    <!-- controllers -->
+    <script src="controllers/phoneList.controller.js"></script>
+    <script src="controllers/phoneDetails.controller.js"></script>
+    <script src="controllers/login.controller.js"></script>
+    <script src="controllers/calender.js"></script>
+    <script src="controllers/addAppointmentController.js"></script>
+  </body>
+</html>
