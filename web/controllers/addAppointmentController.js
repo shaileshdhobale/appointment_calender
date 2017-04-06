@@ -1,8 +1,9 @@
-app.controller('addAppointmentController', ['$scope', function($scope) {
+app.controller('addAppointmentController', ['$scope', '$http', function($scope, $http) {
 	$scope.endDateBeforeRender = endDateBeforeRender
 	$scope.endDateOnSetTime = endDateOnSetTime
 	$scope.startDateBeforeRender = startDateBeforeRender
 	$scope.startDateOnSetTime = startDateOnSetTime
+	$scope.apppointmentName = "";
 
 	function startDateOnSetTime () {
 	  $scope.$broadcast('start-date-changed');
@@ -38,6 +39,20 @@ app.controller('addAppointmentController', ['$scope', function($scope) {
 	}
 
 	$scope.addAppointment = function() {
-		
+		var req = {
+			method: 'POST',
+			url: '/addAppointment',
+			// headers: {
+			// 	'Content-Type': undefined
+			// },
+			data: { name: $scope.apppointmentName, endDate: $scope.dateRangeEnd, startDate: $scope.dateRangeStart}
+		}
+
+		$http(req)
+		.then(function(response){
+			console.log(response.data);
+		}, function(error){
+
+		});
 	}
 }]);
