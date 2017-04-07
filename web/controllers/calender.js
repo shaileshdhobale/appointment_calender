@@ -1,5 +1,5 @@
 
-app.controller('calender', ['$scope', function($scope) {
+app.controller('calender', ['$scope', '$http', function($scope, $http) {
   
   var $currentPopover = null;
     $(document).on('shown.bs.popover', function (ev) {
@@ -233,6 +233,64 @@ app.controller('calender', ['$scope', function($scope) {
       
   })(jQuery);
 
+
+  $scope.endDateBeforeRender = endDateBeforeRender
+  $scope.endDateOnSetTime = endDateOnSetTime
+  $scope.startDateBeforeRender = startDateBeforeRender
+  $scope.startDateOnSetTime = startDateOnSetTime
+  $scope.apppointmentName = "";
+  $scope.description = "";
+
+  function startDateOnSetTime () {
+    $scope.$broadcast('start-date-changed');
+  }
+
+  function endDateOnSetTime () {
+    $scope.$broadcast('end-date-changed');
+  }
+
+  function startDateBeforeRender ($dates) {
+    if ($scope.dateRangeEnd) {
+      console.log($scope.dateRangeEnd.toISOString())
+      var activeDate = moment($scope.dateRangeEnd);
+      $dates.filter(function (date) {
+        
+        return date.localDateValue() >= activeDate.valueOf()
+      }).forEach(function (date) {
+        date.selectable = false;
+      })
+    }
+  }
+
+  function endDateBeforeRender ($view, $dates) {
+    if ($scope.dateRangeStart) {
+      var activeDate = moment($scope.dateRangeStart).subtract(1, $view).add(1, 'minute');
+      $dates.filter(function (date) {
+        
+        return date.localDateValue() <= activeDate.valueOf()
+      }).forEach(function (date) {
+        date.selectable = false;
+      })
+    }
+  }
+
+  $scope.addAppointment = function() {
+    var req = {
+      method: 'POST',
+      url: '/addAppointment',
+      data: { title: $scope.apppointmentName, endDate: $scope.dateRangeEnd, startDate: $scope.dateRangeStart, description: $scope.description}
+    }
+
+    $http(req)
+    .then(function(response){
+      console.log(response.data);
+    }, function(error){
+
+    });
+  }
+
+
+
   var data = [],
       date = new Date(),
       d = date.getDate(),
@@ -268,14 +326,12 @@ app.controller('calender', ['$scope', function($scope) {
 "end":null,
 "text":"You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man."
 });
-    data.sort(function(a,b) { return (+a.start) - (+b.start); });
+  data.sort(function(a,b) { return (+a.start) - (+b.start); });
     
   //data must be sorted by start date
 
   //Actually do everything
-  // $.getScript('http://arshaw.com/js/fullcalendar-1.6.4/fullcalendar/fullcalendar.min.js',function(){
   $('#holder').calendar({
     data: data
   });
-  // });
 }]);

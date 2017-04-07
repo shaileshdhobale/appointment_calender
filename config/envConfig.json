@@ -1,0 +1,39 @@
+{
+    "environmentType": "local",
+    "envConfig": {
+        "local": {
+            "port": 4000,
+            "securePort": 443,
+            "dbConnectionString": "mongodb://127.0.0.1/Digi_Receipts",
+            "logLevel": "DEBUG",
+            "sendSMSUrl1":"http://203.92.40.186:8443/Sun3/Send_SMS2x?user=testuser&password=testuser&sender=MCALRT&PhoneNumber=",
+            "sendSMSUrl": "http://www.webpostservice.com/sendsms/sendsms.php?username=DiReceipt&password=692150&type=TEXT&sender=DGREPT&mobile=",
+            "indian_city_by_postal_code": "https://www.whizapi.com/api/v2/util/ui/in/indian-city-by-postal-code",
+            "project_app_key": "kcgun3vc8c4vvwu19e9k2i3i",
+            "digi_webapp_host": "http://127.0.0.1:8091/#/finalbill/",
+            "SMTPTransport": "smtps://AKIAIUTUQJNRHZUWGD4Q:AjEdsuv1B74w+dIqjizYFAsjplgMGVkU2mGiNs2LsAlC@email-smtp.us-west-2.amazonaws.com",
+            "DIGI_WEBAPP": "https://digireceipts.spdpl.com/merchant/login",
+            "emailVerifyAPI" : "http://127.0.0.1:4000/merchant/emailVerification/",
+            "customerEmailVerifyAPI": "http://127.0.0.1:4000/customer/emailVerification/",
+            "KEY": "gtKFFx",
+            "SALT": "eCwWELxi"
+        },
+        "dev": {
+            "port": 4000,
+            "securePort": 443,
+            "dbConnectionString": "mongodb://127.0.0.1/Digi_Receipts",
+            "logLevel": "debug",
+            "sendSMSUrl":"http://203.92.40.186:8443/Sun3/Send_SMS2x?user=testuser&password=testuser&sender=MCALRT&PhoneNumber=",
+            "sendSMSUrl1": "http://www.webpostservice.com/sendsms/sendsms.php?username=DiReceipt&password=692150&type=TEXT&sender=DGREPT&mobile=",
+            "indian_city_by_postal_code": "https://www.whizapi.com/api/v2/util/ui/in/indian-city-by-postal-code",
+            "project_app_key": "kcgun3vc8c4vvwu19e9k2i3i",
+            "digi_webapp_host": "https://digireceipts.spdpl.com/#/finalbill/",
+            "SMTPTransport": "smtps://AKIAIUTUQJNRHZUWGD4Q:AjEdsuv1B74w+dIqjizYFAsjplgMGVkU2mGiNs2LsAlC@email-smtp.us-west-2.amazonaws.com",
+            "DIGI_WEBAPP": "https://digireceipts.spdpl.com/merchant/login",
+            "emailVerifyAPI" : "https://digiservices.spdpl.com/merchant/emailVerification/",
+            "customerEmailVerifyAPI": "https://digiservices.spdpl.com/customer/emailVerification",
+            "KEY": "gtKFFx",
+            "SALT": "eCwWELxi"
+        }
+    }
+}

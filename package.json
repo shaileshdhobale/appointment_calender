@@ -1,7 +1,7 @@
 {
-  "name": "firstapp",
+  "name": "appointment_app",
   "version": "1.0.0",
-  "description": "learning of Angular",
+  "description": "Appointment Management",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,9 @@
   "author": "shailesh",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "4.4.2",
+    "log4js": "~1.1.1",
+    "lodash": "~4.17.4",
+    "async": "~2.3.0"
   }
 }

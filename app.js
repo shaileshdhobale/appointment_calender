@@ -1,17 +1,36 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var log4js = require('log4js');
 
 //router
 var appointmentRouter = require('./router/appointmentRouter.js');
 
+//config
+var config = require("./config/config.js");
+var envConfig = config.environmentConfig();
 
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 app.use(express.static(__dirname + '/web'));
-app.set('port', process.env.PORT || 9090);
+app.set('port', process.env.PORT || 8000);
+
+//logger
+log4js.configure('./config/logConfig.json');
+var logger = log4js.getLogger('[app]');
+logger.setLevel(envConfig.logLevel);
 
 
+var server = app.listen(app.get('port'));
+logger.info('Express server listening on port ' + server.address().port);
+
+
+
+// Connect to MongoDB
+var db = require('./doa/db.js');
+db.connectToMongo();
+
+logger.info("Intializing router...");
 app.all('*', appointmentRouter);
 
 // catch 404 and forward to error handler
@@ -31,8 +50,4 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.send(err);
-});
-
-var server = app.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
 });
