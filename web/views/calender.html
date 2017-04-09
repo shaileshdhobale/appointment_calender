@@ -1,6 +1,6 @@
-<div ng-controller="calender" class="">
-  <div class="col-sm-6">
-  <h1> Add Appointment</h1>
+<div ng-controller="calender" class="margin1">
+  <div class="col-sm-3 border">
+  <h1 class="headerM"> Add Appointment</h1>
     <div class="form-group">
       <label for="inputdefault">Title</label>
       <input class="form-control" id="inputdefault" type="text" ng-model="apppointmentName">
@@ -47,12 +47,13 @@
       <label for="inputdefault">Description</label>
       <input class="form-control" id="inputdefault" type="textarea" ng-model="description">
       </div>
-    <button type="button" class="btn btn-success" ng-click="addAppointment()">Add Appointment
+    <button type="button" class="btn btn-success form-group success-btn" ng-click="addAppointment()">Add Appointment
     </button>
   </div>
-  <div class="col-sm-5"> 
-    <h1>Calendar</h1>
-    <div id="holder" class="row" ></div>
+  <div class="col-sm-1"></div>
+  <div class="col-sm-8 border" style="height: 60%;"> 
+    <h1 class="headerM">Calendar</h1>
+    <div id="holder" class="row headerM" ></div>
   </div>
 </div>
 
@@ -175,15 +176,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th class="timetitle" >All Day</th>
-                <td class="{{: date.toDateCssClass() }}">  </td>
-              </tr>
-              <tr>
-                <th class="timetitle" >Before 6 AM</th>
-                <td class="time-0-0"> </td>
-              </tr>
-              {{for (i = 6; i < 22; i++) { }}
+              {{for (i = 0; i < 23; i++) { }}
               <tr>
                 <th class="timetitle" >{{: i <= 12 ? i : i - 12 }} {{: i < 12 ? "AM" : "PM"}}</th>
                 <td class="time-{{: i}}-0"> </td>

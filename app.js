@@ -1,3 +1,4 @@
+//external dependencies
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -10,10 +11,11 @@ var appointmentRouter = require('./router/appointmentRouter.js');
 var config = require("./config/config.js");
 var envConfig = config.environmentConfig();
 
+//middleware
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 app.use(express.static(__dirname + '/web'));
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || envConfig.port || 8000);
 
 //logger
 log4js.configure('./config/logConfig.json');
@@ -27,7 +29,7 @@ logger.info('Express server listening on port ' + server.address().port);
 
 
 // Connect to MongoDB
-var db = require('./doa/db.js');
+var db = require('./dao/db.js');
 db.connectToMongo();
 
 logger.info("Intializing router...");

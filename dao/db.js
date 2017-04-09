@@ -8,7 +8,7 @@ var config = require("../config/config.js");
 var envConfig = config.environmentConfig();
 
 // // logger
-var logger = log4js.getLogger('[doa/db]');
+var logger = log4js.getLogger('[dao/db]');
 logger.setLevel(envConfig.logLevel);
 
 

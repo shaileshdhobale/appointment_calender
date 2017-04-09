@@ -14,6 +14,8 @@ var constants = require('../utils/constants.js');
 var logger = log4js.getLogger('[dao/db]');
 logger.setLevel(envConfig.logLevel);
 
+
+//Function to add appointment and send response to client.
 var addAppointment = function(req, res) {
 	var METHOD_NAME = "[addAppointment] ";
 	var response;
@@ -86,7 +88,7 @@ var addAppointment = function(req, res) {
 	})
 };
 
-
+//Function to get all appointments and send to client.
 var fetchAllAppointment = function (req, res) {
 	var METHOD_NAME = "[fetchAllAppointment] ";
 	var response;

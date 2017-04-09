@@ -2,14 +2,15 @@
 <html ng-app="phonecatApp" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Google Phone Gallery</title>
+    <title>Appointment Calender</title>
     <!-- Stylesheet -->
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
-    <link rel="stylesheet" href="css/app.css" />
+    
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css"/>
-    
+    <link rel="stylesheet" type="text/css" href="lib/sweetalert.css">
+    <link rel="stylesheet" href="css/app.css" />
 
   </head>
   <body>
@@ -26,21 +27,11 @@
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
 
-    
+    <!-- Vendor -->
+    <script src="lib/sweetalert.min.js"></script>
     <!-- Services -->
-    
-    <script src="services/login.service.js"></script>
-    <script src="services/http.service.js"></script>
-    <script src="services/phoneList.service.js"></script>
-    <script src="services/phoneDetails.service.js"></script>
-
-    
 
     <!-- controllers -->
-    <script src="controllers/phoneList.controller.js"></script>
-    <script src="controllers/phoneDetails.controller.js"></script>
-    <script src="controllers/login.controller.js"></script>
     <script src="controllers/calender.js"></script>
-    <script src="controllers/addAppointmentController.js"></script>
   </body>
 </html>
