@@ -15,7 +15,12 @@ var envConfig = config.environmentConfig();
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 app.use(express.static(__dirname + '/web'));
-app.set('port', process.env.PORT || envConfig.port || 8000);
+if(process.NODE_ENV == "production") {
+    app.set('port', process.env.PORT || envConfig.securePort || 443);
+} else {
+    app.set('port', process.env.PORT || envConfig.port || 8000);    
+}
+
 
 //logger
 log4js.configure('./config/logConfig.json');
